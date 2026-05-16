@@ -7,3 +7,12 @@
 [user]
 	email = michael.romary92270@gmail.com
 	name = michka
+[core]
+	editor = code
+[init]
+	defaultBranch = main
+[alias]
+	ck=checkout
+	br=branch
+[color]
+    ui = auto
