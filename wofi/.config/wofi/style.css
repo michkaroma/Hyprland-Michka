@@ -1,0 +1,99 @@
+@define-color bg       #000000;
+@define-color fg       #ffffff;
+@define-color fg-dim   #cccccc;
+@define-color border   #333333;
+@define-color accent   #ff0000;
+
+* {
+    font-family: 'CaskaydiaCove Nerd Font', monospace;
+    font-size: 18px;
+}
+
+/* Window */
+window {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+/* Outer Box */
+#outer-box {
+    margin: 0px;
+    padding: 10px;
+    border: 2px solid @accent;
+    border-radius: 8px;
+    background-color: @bg;
+}
+
+/* Inner Box */
+#inner-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: @bg;
+}
+
+/* Scroll */
+#scroll {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+    background-color: @bg;
+}
+
+/* Input */
+#input {
+    margin: 5px 20px;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid @border;
+    border-radius: 0;
+    color: @fg;
+    background-color: @bg;
+}
+
+#input image {
+    border: none;
+    color: @accent;
+}
+
+#input * {
+    outline: 2px solid @accent !important;
+}
+
+/* Entry */
+#entry {
+    background-color: @bg;
+    border-radius: 0;
+}
+
+#entry arrow {
+    border: none;
+    color: @accent;
+}
+
+/* Text */
+#text {
+    margin: 5px;
+    border: none;
+    color: @fg-dim;
+}
+
+/* Selected Entry */
+#entry:selected {
+    background-color: @bg;
+    border: 1px solid @accent;
+    border-radius: 0;
+}
+
+#entry:selected #text {
+    color: @fg;
+    font-weight: bold;
+}
+
+#entry:drop(active) {
+    background-color: @accent !important;
+}
