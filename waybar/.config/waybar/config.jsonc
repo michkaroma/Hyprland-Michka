@@ -18,22 +18,27 @@
         "clock",
         "tray",
     ],
-//    "hyprland/workspaces": {
-//        "disable-scroll": true,
-//        "all-outputs": true,
-//        "warp-on-scroll": false,
-//        "format": "{name}: {icon}",
-//        "format-icons": {
-//            "1": "",
-//            "2": "",
-//            "3": "",
-//            "4": "",
-//            "5": "",
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
 //            "urgent": "",
 //            "active": "",
 //            "default": ""
-//        }
-//    },
+        }
+    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
