@@ -1,0 +1,9 @@
+user_pref("privacy.clearOnShutdown.cookies", false);
+user_pref("privacy.clearOnShutdown.sessions", false);
+user_pref("privacy.sanitize.sanitizeOnShutdown", false);
+user_pref("dom.security.https_only_mode", false);
+user_pref("dom.security.https_only_mode_pbm", true);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.newtabpage.enabled", true);
+user_pref("browser.startup.page", 1);
+user_pref("browser.startup.homepage", "moz-extension://3d1bdea7-11ab-4ea3-a97e-fea22d157e49/index.html");
