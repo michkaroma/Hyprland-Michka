@@ -97,11 +97,11 @@ button:hover {
 
 #idle_inhibitor {
     margin-right: 12px;
-    color: #7cb342;
+    color: #000000;
 }
 
 #idle_inhibitor.activated {
-    color: @red;
+    color: @white;
 }
 
 #battery {
