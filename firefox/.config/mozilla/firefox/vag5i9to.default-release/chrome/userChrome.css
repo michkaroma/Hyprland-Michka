@@ -1,0 +1,36 @@
+/* Cacher la barre de titre */
+#titlebar {
+    display: none !important;
+}
+
+/* Réduire la hauteur des onglets */
+#tabbrowser-tabs {
+    --tab-min-height: 30px !important;
+}
+
+/* Cacher la barre d'onglets quand il n'y en a qu'un */
+#TabsToolbar:has(tab:only-of-type) {
+    visibility: collapse !important;
+}
+
+/* Onglets arrondis */
+.tabbrowser-tab .tab-background {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+/* Centrer l'URL */
+#urlbar-input {
+    text-align: center !important;
+}
+
+/* Cacher le bouton Extensions */
+#unified-extensions-button {
+    display: none !important;
+}
+
+/* Cacher les icônes inutiles dans la barre d'adresse */
+#tracking-protection-icon-container,
+#reader-mode-button,
+#picture-in-picture-button {
+    display: none !important;
+}
