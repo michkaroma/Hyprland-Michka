@@ -29,4 +29,8 @@ function y() {
     rm -f -- "$tmp"
 }
 
+eval "$(zoxide init bash)"
+
+eval "$(starship init bash)"
+
 export EDITOR="code --wait"
