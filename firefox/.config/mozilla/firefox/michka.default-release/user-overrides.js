@@ -6,6 +6,6 @@ user_pref("dom.security.https_only_mode_pbm", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.newtabpage.enabled", true);
 user_pref("browser.startup.page", 1);
-user_pref("browser.startup.homepage", "moz-extension://081b7c7f-2792-4efd-8099-f372f24535f1/index.html");
+user_pref("browser.startup.homepage", "moz-extension://9d488704-860b-452d-893b-4e5a0b4a3e9d/index.html");
 user_pref("browser.download.useDownloadDir", true);
 user_pref("browser.download.always_ask_before_handling_new_types", false);

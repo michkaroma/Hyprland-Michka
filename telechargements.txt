@@ -28,6 +28,7 @@ hyprpaper
 hyprshutdown
 imagemagick
 imv
+intel-media-driver
 intel-ucode
 kicad
 kicad-library
@@ -36,7 +37,6 @@ kitty
 less
 libpulse
 libreoffice-fresh
-libva-nvidia-driver
 linux
 linux-firmware
 nemo
@@ -46,7 +46,6 @@ nextcloud-client
 nodejs
 npm
 ntfs-3g
-nvidia-open
 nwg-look
 obsidian
 os-prober
