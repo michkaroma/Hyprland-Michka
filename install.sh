@@ -6,7 +6,7 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-STOW_PACKAGES=(bash firefox git hypridle hyprland hyprlock hyprmocha hyprpaper kitty mimeapps waybar wofi)
+STOW_PACKAGES=(bash firefox git hypridle hyprland hyprlock hyprmocha hyprpaper kitty mimeapps starship waybar wofi)
 SDDM_THEME_REPO="https://github.com/michkaroma/SDDM-Michka.git"
 SDDM_THEME_NAME="SDDM-Michka"
 BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
