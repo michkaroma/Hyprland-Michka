@@ -33,4 +33,6 @@ eval "$(zoxide init bash)"
 
 eval "$(starship init bash)"
 
+[[ $TERM == xterm-kitty ]] && fastfetch
+
 export EDITOR="code --wait"

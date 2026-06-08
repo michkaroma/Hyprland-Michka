@@ -1,0 +1,21 @@
+// ~/.config/fastfetch/config.jsonc — tout en rouge sur fond noir
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "arch",
+    "padding": { "top": 1 },
+    // logo entièrement rouge (on force tous les slots de couleur)
+    "color": { "1": "red", "2": "red", "3": "red" }
+  },
+  "display": {
+    "color": {
+      "keys": "red",     // OS, Kernel, ...
+      "title": "red",    // michka@michkasarchlinux
+      "output": "red"    // les valeurs (Arch Linux x86_64, etc.)
+    },
+    "percent": {
+      // supprime le vert/jaune des pourcentages d'usage → rouge partout
+      "color": { "green": "red", "yellow": "red", "red": "red" }
+    }
+  }
+}
