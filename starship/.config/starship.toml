@@ -1,4 +1,3 @@
-# ~/.config/starship.toml — thème noir / blanc / rouge
 "$schema" = 'https://starship.rs/config-schema.json'
 
 palette = "michka"
@@ -8,17 +7,6 @@ black = "#000000"
 white = "#ffffff"
 red   = "#ff0000"
 grey  = "#5c5c5c"
-
-# Prompt sur deux lignes : infos en haut, ❯ en bas
-format = """
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_status\
-$cmd_duration\
-$line_break\
-$character"""
 
 [character]
 success_symbol = "[❯](bold white)"
@@ -56,7 +44,6 @@ min_time = 500
 style    = "grey"
 format   = "[ $duration]($style)"
 
-# user@host : masqués en local, affichés seulement en SSH
 [username]
 show_always = false
 style_user  = "bold white"
@@ -67,3 +54,188 @@ format      = "[$user]($style)"
 ssh_only = true
 style    = "red"
 format   = "[@$hostname]($style) "
+
+# ── Langages & outils : comportement no-empty-icons + versions en gris ──
+[buf]
+format = '(with [$symbol($version )]($style))'
+style = 'grey'
+
+[bun]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[c]
+format = '(via [$symbol($version(-$name) )]($style))'
+style = 'grey'
+
+[cpp]
+format = '(via [$symbol($version(-$name) )]($style))'
+style = 'grey'
+
+[cmake]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[cobol]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[crystal]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[daml]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[dart]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[deno]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[dotnet]
+format = '(via [$symbol($version )(🎯 $tfm )]($style))'
+style = 'grey'
+
+[elixir]
+format = '(via [$symbol($version \(OTP $otp_version\) )]($style))'
+style = 'grey'
+
+[elm]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[erlang]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[fennel]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[fortran]
+format = "(via [$symbol($version )]($style))"
+style = 'grey'
+
+[gleam]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[golang]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[haskell]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[helm]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[java]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[julia]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[kotlin]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[lua]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[nim]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[nodejs]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[ocaml]
+format = '(via [$symbol($version )(\($switch_indicator$switch_name\) )]($style))'
+style = 'grey'
+
+[opa]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[package]
+format = '(is [$symbol$version]($style) )'
+style = 'grey'
+
+[perl]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[php]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[purescript]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[python]
+format = '(via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style))'
+style = 'grey'
+
+[quarto]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[raku]
+format = '(via [$symbol($version-$vm_version )]($style))'
+style = 'grey'
+
+[red]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[rlang]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[ruby]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[rust]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[scala]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[swift]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[typst]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[vagrant]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[vlang]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[xmake]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'
+
+[zig]
+format = '(via [$symbol($version )]($style))'
+style = 'grey'

@@ -12,6 +12,7 @@ discord
 dunst
 efibootmgr
 exfatprogs
+fastfetch
 ffmpegthumbnailer
 firefox
 git
