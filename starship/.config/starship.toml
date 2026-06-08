@@ -1,0 +1,69 @@
+# ~/.config/starship.toml — thème noir / blanc / rouge
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "michka"
+
+[palettes.michka]
+black = "#000000"
+white = "#ffffff"
+red   = "#ff0000"
+grey  = "#5c5c5c"
+
+# Prompt sur deux lignes : infos en haut, ❯ en bas
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+[character]
+success_symbol = "[❯](bold white)"
+error_symbol   = "[❯](bold red)"
+vimcmd_symbol  = "[❮](bold red)"
+
+[directory]
+style             = "bold white"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only         = " "
+read_only_style   = "red"
+
+[git_branch]
+symbol = " "
+style  = "red"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style      = "red"
+format     = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "="
+ahead      = "⇡${count}"
+behind     = "⇣${count}"
+diverged   = "⇕"
+untracked  = "?${count}"
+stashed    = "*${count}"
+modified   = "!${count}"
+staged     = "+${count}"
+renamed    = "»${count}"
+deleted    = "✘${count}"
+
+[cmd_duration]
+min_time = 500
+style    = "grey"
+format   = "[ $duration]($style)"
+
+# user@host : masqués en local, affichés seulement en SSH
+[username]
+show_always = false
+style_user  = "bold white"
+style_root  = "bold red"
+format      = "[$user]($style)"
+
+[hostname]
+ssh_only = true
+style    = "red"
+format   = "[@$hostname]($style) "
