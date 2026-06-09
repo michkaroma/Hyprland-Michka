@@ -8,7 +8,7 @@
 	email = michael.romary92270@gmail.com
 	name = michka
 [core]
-	editor = code
+	editor = nvim
 [init]
 	defaultBranch = main
 [alias]
