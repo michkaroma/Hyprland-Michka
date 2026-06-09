@@ -98,25 +98,17 @@ sudo systemctl enable sddm NetworkManager bluetooth tailscaled
 # === 8. Divers ===
 echo "==> [8/8] Navigateur par défaut"
 xdg-settings set default-web-browser firefox.desktop 2>/dev/null || true
+sudo localectl set-x11-keymap fr
 
 cat <<'EOF'
 
 ╔════════════════════════════════════════════════════╗
 ║              ÉTAPES MANUELLES RESTANTES            ║
 ╠════════════════════════════════════════════════════╣
-║ 1. ~/.ssh : restaurer + chmod 700/600              ║
-║ 2. /var/lib/sbctl : restaurer les clés             ║
-║    (GUID et keys/ DIRECTEMENT dans /var/lib/sbctl) ║
-║ 3. NVIDIA : nvidia_drm.modeset=1 dans              ║
+║ 1. NVIDIA : nvidia_drm.modeset=1 dans              ║
 ║    /etc/kernel/cmdline puis: sudo mkinitcpio -P    ║
-║ 4. rEFInd : maj 'volume' (PARTUUID nouvelle ESP)   ║
-║    dans refind.conf -> lsblk -o NAME,PARTUUID      ║
-║ 5. sbctl sign : bootmgfw.efi (rEFInd),             ║
-║    systemd-bootx64.efi, BOOTX64.EFI                ║
-║ 6. efibootmgr -o ... (rEFInd en premier)           ║
-║ 7. Secure Boot : réactiver dans le BIOS            ║
-║ 8. sudo tailscale up                               ║
-║ 9. Reconnecter : Nextcloud, Firefox Sync, Beeper   ║
-║10. Reboot !                                        ║
+║ 2. sudo tailscale up                               ║
+║ 3. Reconnecter : Nextcloud, Firefox Sync, Beeper   ║
+║ 4. Reboot !                                        ║
 ╚════════════════════════════════════════════════════╝
 EOF
