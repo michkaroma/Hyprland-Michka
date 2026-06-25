@@ -19,6 +19,7 @@ alias ...='cd ../..'
 alias search='pacman -Ss'
 alias searchyay='yay -Ss'
 alias please='sudo'
+alias serveur='ssh michka@100.71.91.59'
 
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
