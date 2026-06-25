@@ -30,6 +30,7 @@ hyprshutdown
 imagemagick
 imv
 intel-ucode
+jq
 kicad
 kicad-library
 kicad-library-3d
