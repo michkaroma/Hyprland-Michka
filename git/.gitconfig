@@ -16,3 +16,5 @@
 	br=branch
 [color]
     ui = auto
+[safe]
+	directory = /usr/share/sddm/themes/SDDM-Michka
