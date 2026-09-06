@@ -37,3 +37,7 @@ eval "$(starship init bash)"
 [[ $TERM == xterm-kitty ]] && fastfetch
 
 export EDITOR="code --wait"
+
+# Created by `pipx` on 2026-07-07 14:18:27
+export PATH="$PATH:/home/michka/.local/bin"
+export PATH=$PATH:/opt/microchip/xc8/v4.00/bin
