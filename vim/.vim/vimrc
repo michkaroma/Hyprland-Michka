@@ -1,0 +1,163 @@
+" ~/.vimrc — Michka
+" Sans plugin : colorscheme ~/.vim/colors/michka.vim + statusline maison
+" Même fichier sur michkasarchlinux, michkalaptop et le 3e fixe
+
+set nocompatible
+filetype plugin indent on
+syntax on
+set encoding=utf-8
+scriptencoding utf-8
+packadd! matchit
+
+" ─── Couleurs ────────────────────────────────────────────────
+if has('termguicolors')
+  set termguicolors
+endif
+" Soulignement ondulé (Kitty) pour les fautes d'orthographe
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+try
+  colorscheme michka
+catch
+  colorscheme habamax
+endtry
+
+" Curseur : bloc en normal, barre en insertion, souligné en remplacement
+let &t_SI = "\e[6 q"
+let &t_SR = "\e[4 q"
+let &t_EI = "\e[2 q"
+
+" ─── Interface ───────────────────────────────────────────────
+set number relativenumber
+set cursorline cursorlineopt=number
+set signcolumn=no
+set laststatus=2 noshowmode showcmd
+set scrolloff=8 sidescrolloff=8
+set splitright splitbelow
+set mouse=a ttymouse=sgr
+set hidden
+set belloff=all
+set shortmess+=cI
+set updatetime=300
+set ttimeout ttimeoutlen=10
+set wrap linebreak breakindent
+let &showbreak = '↪ '
+set list listchars=tab:→\ ,trail:·,nbsp:␣,extends:›,precedes:‹
+set fillchars=vert:│,fold:─,eob:\ 
+set wildmenu wildmode=longest:full,full
+silent! set wildoptions=pum
+set backspace=indent,eol,start
+
+" ─── Indentation & recherche ─────────────────────────────────
+set expandtab shiftwidth=4 tabstop=4 softtabstop=4 shiftround autoindent
+set incsearch hlsearch ignorecase smartcase
+
+" ─── Fichiers d'état hors du dépôt dotfiles (XDG) ────────────
+let s:state = expand('~/.local/state/vim')
+for s:d in ['undo', 'swap', 'backup']
+  if !isdirectory(s:state . '/' . s:d)
+    call mkdir(s:state . '/' . s:d, 'p', 0700)
+  endif
+endfor
+let &undodir     = s:state . '/undo//'
+let &directory   = s:state . '/swap//'
+let &backupdir   = s:state . '/backup//'
+let &viminfofile = s:state . '/viminfo'
+set undofile
+
+" ─── Netrw (:Lexplore) ───────────────────────────────────────
+let g:netrw_banner   = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize  = 25
+
+" ─── Raccourcis (leader = Espace, pratique en AZERTY) ────────
+let mapleader = ' '
+nnoremap <leader>w :write<CR>
+nnoremap <leader>q :quit<CR>
+nnoremap <silent> <leader>h :nohlsearch<CR>
+nnoremap <silent> <leader>e :Lexplore<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" Déplacer la sélection, garder la sélection après indentation
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
+xnoremap < <gv
+xnoremap > >gv
+" Résultats de recherche centrés
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" ─── Presse-papier Wayland (vim d'Arch n'a pas +clipboard) ───
+if executable('wl-copy')
+  xnoremap <silent> <leader>y y:call system('wl-copy', @")<CR>
+  nnoremap <silent> <leader>Y yy:call system('wl-copy', @")<CR>
+  nnoremap <silent> <leader>p :let @z = system('wl-paste --no-newline')<CR>"zp
+elseif has('clipboard')
+  set clipboard=unnamedplus
+endif
+
+" ─── Revenir à la dernière position dans un fichier ──────────
+augroup michka_lastpos
+  autocmd!
+  autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line('$') && &ft !~# 'commit'
+        \ | execute 'normal! g`"' | endif
+augroup END
+
+" ─── Statusline ──────────────────────────────────────────────
+let s:modes = {
+      \ 'n':      ['NORMAL',  'StlNormal'],
+      \ 'i':      ['INSERT',  'StlInsert'],
+      \ 'R':      ['REPLACE', 'StlReplace'],
+      \ 'v':      ['VISUAL',  'StlVisual'],
+      \ 'V':      ['V-LINE',  'StlVisual'],
+      \ "\<C-v>": ['V-BLOCK', 'StlVisual'],
+      \ 's':      ['SELECT',  'StlVisual'],
+      \ 'S':      ['S-LINE',  'StlVisual'],
+      \ 'c':      ['COMMAND', 'StlCommand'],
+      \ 't':      ['TERMINAL','StlInsert'],
+      \ }
+
+" Branche git mise en cache par buffer (évite un appel git à chaque redraw)
+function! s:UpdateBranch() abort
+  let b:michka_branch = ''
+  if &buftype !=# '' || !executable('git')
+    return
+  endif
+  let l:dir = expand('%:p:h')
+  if !isdirectory(l:dir)
+    return
+  endif
+  let l:out = system('git -C ' . shellescape(l:dir) . ' branch --show-current 2>/dev/null')
+  if v:shell_error == 0
+    let b:michka_branch = trim(l:out)
+  endif
+endfunction
+
+function! MichkaStatusline() abort
+  if g:statusline_winid != win_getid()
+    return '%#StatusLineNC#  %f %m%=%l:%c  '
+  endif
+  let [l:name, l:hl] = get(s:modes, mode(), ['NORMAL', 'StlNormal'])
+  let l:branch = getbufvar(winbufnr(g:statusline_winid), 'michka_branch', '')
+  let l:s  = '%#' . l:hl . '# ' . l:name . ' '
+  if !empty(l:branch)
+    let l:s .= '%#StlInfo#  ' . l:branch . ' '
+  endif
+  let l:s .= '%#StlFile# %f'
+  let l:s .= '%#StlModified#%{&modified ? " ●" : ""}%{&readonly ? " " : ""}'
+  let l:s .= '%#StlFill#%='
+  let l:s .= '%#StlInfo# %{&filetype !=# "" ? &filetype : "txt"} '
+  let l:s .= ' %{&fileencoding !=# "" ? &fileencoding : &encoding} '
+  let l:s .= '%#' . l:hl . '# %l:%c  %p%% '
+  return l:s
+endfunction
+
+set statusline=%!MichkaStatusline()
+
+augroup michka_statusline
+  autocmd!
+  autocmd BufEnter,FocusGained,ShellCmdPost * call s:UpdateBranch()
+  autocmd ModeChanged * redrawstatus
+augroup END
