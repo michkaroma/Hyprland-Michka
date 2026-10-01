@@ -1,4 +1,5 @@
-@import "mocha.css"; 
+/* Couleurs générées par ~/dotfiles/theme/apply.sh */
+@import "colors.css";
 
 * {
     font-family: "MesloLGS Nerd Font Mono Bold";
@@ -9,11 +10,11 @@
 
 window#waybar {
     background: transparent;
-    background-color: @black;
-    color: @white;
+    background-color: @bg;
+    color: @fg;
     transition-property: background-color;
     transition-duration: 0.1s;
-    border-bottom: 1px solid @white;
+    border-bottom: 1px solid @fg;
 }
 
 #window {
@@ -30,8 +31,8 @@ button {
 
 button:hover {
     background: inherit;
-    color: @white;
-    border-top: 2px solid @white;
+    color: @fg;
+    border-top: 2px solid @fg;
 }
 
 #workspaces button {
@@ -39,19 +40,19 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @white;
-    border-top: 2px solid @red;
+    background-color: alpha(@bg, 0.3);
+    color: @fg;
+    border-top: 2px solid @accent;
 }
 
 #workspaces button.active {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @white;
-    border-top: 2px solid @red;
+    background-color: alpha(@bg, 0.3);
+    color: @fg;
+    border-top: 2px solid @accent;
 }
 
 #workspaces button.urgent {
-    background-color: @white;
+    background-color: @fg;
 }
 
 #pulseaudio,
@@ -76,37 +77,37 @@ button:hover {
 }
 
 #clock {
-    color: @white;
-    border-bottom: 2px solid @white;
+    color: @fg;
+    border-bottom: 2px solid @fg;
 }
 
 #clock.date {
-    color: @white;
-    border-bottom: 2px solid @white;
+    color: @fg;
+    border-bottom: 2px solid @fg;
 }
 
 #pulseaudio {
-    color: @white;
-    border-bottom: 2px solid @white;
+    color: @fg;
+    border-bottom: 2px solid @fg;
 }
 
 #network {
-    color: @white;
-    border-bottom: 2px solid @white;
+    color: @fg;
+    border-bottom: 2px solid @fg;
 }
 
 #idle_inhibitor {
     margin-right: 12px;
-    color: #000000;
+    color: @bg;
 }
 
 #idle_inhibitor.activated {
-    color: @white;
+    color: @fg;
 }
 
 #battery {
-    color: @white;
-    border-bottom: 2px solid @white;
+    color: @fg;
+    border-bottom: 2px solid @fg;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -120,7 +121,7 @@ button:hover {
 }
 
 #custom-vpn {
-    color: @white;
+    color: @fg;
     border-radius: 15px;
     padding-left: 6px;
     padding-right: 6px;

@@ -6,7 +6,8 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-STOW_PACKAGES=(bash firefox git hypridle hyprland hyprlock hyprmocha hyprpaper kitty mimeapps starship waybar fastfetch wofi)
+STOW_PACKAGES=(bash dunst fastfetch firefox git hypridle hyprland hyprlock hyprpaper kitty mimeapps starship vim waybar wofi)
+# theme/ n'est PAS un paquet stow : il génère les couleurs dans les paquets ci-dessus (theme/apply.sh)
 SDDM_THEME_REPO="https://github.com/michkaroma/SDDM-Michka.git"
 SDDM_THEME_NAME="SDDM-Michka"
 BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"

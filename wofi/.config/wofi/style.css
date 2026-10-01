@@ -1,8 +1,5 @@
-@define-color bg       #000000;
-@define-color fg       #ffffff;
-@define-color fg-dim   #cccccc;
-@define-color border   #333333;
-@define-color accent   #ff0000;
+/* Couleurs générées par ~/dotfiles/theme/apply.sh */
+@import "colors.css";
 
 * {
     font-family: 'CaskaydiaCove Nerd Font', monospace;
@@ -79,7 +76,7 @@ window {
 #text {
     margin: 5px;
     border: none;
-    color: @fg-dim;
+    color: @fg_dim;
 }
 
 /* Selected Entry */

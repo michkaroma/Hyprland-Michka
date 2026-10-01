@@ -14,6 +14,10 @@ end
 
 local HOST = read_hostname()
 
+-- ---------- Couleurs (générées par ~/dotfiles/theme/apply.sh) ----------
+-- dofile plutôt que require : pas de cache, `hyprctl reload` relit bien le fichier
+local c = dofile(os.getenv("HOME") .. "/.config/hypr/colors.lua")
+
 -- ---------- Moniteurs ----------
 if HOST == "michkasarchlinux" then
     -- Fixe principal : vérifier les positions avec `hyprctl monitors`
@@ -60,8 +64,8 @@ hl.config({
         gaps_out    = 0,
         border_size = 1,
         col = {
-            active_border   = "rgba(ff0000ff)",
-            inactive_border = "rgba(444444ff)",
+            active_border   = "rgba(" .. c.accent .. "ff)",
+            inactive_border = "rgba(" .. c.border .. "ff)",
         },
         layout = "dwindle", -- dwindle ou master
     },

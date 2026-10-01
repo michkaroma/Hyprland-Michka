@@ -1,0 +1,9 @@
+/* GÉNÉRÉ par theme/apply.sh — ne pas éditer (modifier theme/palette.sh) */
+@define-color bg      #000000;
+@define-color surface #1a1a1a;
+@define-color border  #333333;
+@define-color muted   #5c5c5c;
+@define-color fg_dim  #bfbfbf;
+@define-color fg      #ffffff;
+@define-color accent  #ff0000;
+@define-color error   #ff0000;

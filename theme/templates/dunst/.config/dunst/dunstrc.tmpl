@@ -1,0 +1,33 @@
+# GÉNÉRÉ par theme/apply.sh — ne pas éditer
+# Couleurs : theme/palette.sh — reste de la config : theme/templates/dunst/.config/dunst/dunstrc.tmpl
+
+[global]
+    monitor = 0
+    follow = mouse
+    origin = top-right
+    offset = (10, 40)
+    width = 350
+    font = CaskaydiaCove Nerd Font 11
+    padding = 10
+    horizontal_padding = 10
+    frame_width = 1
+    corner_radius = 8
+    frame_color = "#{{accent}}"
+    separator_color = frame
+
+[urgency_low]
+    background = "#{{bg}}"
+    foreground = "#{{fg_dim}}"
+    frame_color = "#{{border}}"
+    timeout = 5
+
+[urgency_normal]
+    background = "#{{bg}}"
+    foreground = "#{{fg}}"
+    timeout = 8
+
+[urgency_critical]
+    background = "#{{bg}}"
+    foreground = "#{{fg}}"
+    frame_color = "#{{error}}"
+    timeout = 0
